@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>VibeStylz – GenZ Fashion</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -17,12 +17,11 @@
   --white:#FFFFFF;
   --black:#0A0A0A;
   --cream:#FFF8F0;
-  --font-head:'Baloo 2',cursive,sans-serif;
+  --font-head:'Bebas Neue',sans-serif;
   --font-body:'Space Grotesk',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{background:var(--orange);color:var(--black);font-family:var(--font-body);overflow-x:hidden}
-[class*="hero-h1"],.s-title,.why-text-big,.banner-bigtext,.footer-brand,.nav-logo,.stat-num,.cat-card-name,.prod-name,.prod-price,.r-name,.s-name,.srch-head,.why-mini-card h4,.p-logo,.btn-black,.btn-white,.btn-outline-black,.sticker,.ticker-inner span,.banner-pill,.hero-eyebrow,.s-eyebrow,.prod-badge,.hero-search-btn,.sarr{font-weight:800}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-thumb{background:var(--black);border-radius:4px}
 
@@ -30,15 +29,48 @@ body{background:var(--orange);color:var(--black);font-family:var(--font-body);ov
 nav{
   position:fixed;top:0;left:0;right:0;z-index:999;
   padding:0 28px;height:68px;
-  display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:space-between;
   background:var(--black);
   border-bottom:3px solid var(--yellow);
 }
 .nav-logo{
-  font-family:var(--font-head);font-size:28px;letter-spacing:1px;font-weight:800;
+  font-family:var(--font-head);font-size:28px;letter-spacing:3px;
   color:var(--white);text-decoration:none;
 }
 .nav-logo span{color:var(--yellow)}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{
+  color:var(--white);text-decoration:none;
+  font-size:13px;font-weight:700;letter-spacing:.5px;
+  padding:8px 16px;border-radius:999px;
+  transition:background .15s,color .15s;
+  text-transform:uppercase;
+}
+.nav-links a:hover{background:var(--yellow);color:var(--black)}
+.search-wrap{
+  display:flex;align-items:center;
+  background:#1a1a1a;border:2px solid #333;border-radius:999px;
+  padding:6px 16px;gap:8px;transition:border-color .2s;
+}
+.search-wrap:focus-within{border-color:var(--yellow)}
+.search-wrap input{
+  background:none;border:none;outline:none;
+  color:var(--white);font-family:var(--font-body);
+  font-size:13px;font-weight:600;width:160px;
+}
+.search-wrap input::placeholder{color:#666}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:2.5px;background:var(--white);border-radius:2px;transition:all .3s}
+
+/* ══ MOBILE MENU ══ */
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;bottom:0;
+  background:var(--black);z-index:998;
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--font-head);font-size:40px;letter-spacing:3px;color:var(--white);text-decoration:none}
+.mob-menu a:hover{color:var(--yellow)}
 
 /* ══ SEARCH OVERLAY ══ */
 #srchOverlay{
@@ -110,36 +142,7 @@ nav{
   position:relative;z-index:2;
   text-shadow:1px 1px 0 rgba(0,0,0,.3);
 }
-.hero-search-wrap{
-  width:100%;max-width:620px;margin-top:32px;position:relative;z-index:2;
-  display:flex;justify-content:center;
-}
-.hero-search-bar{
-  display:flex;align-items:center;gap:12px;
-  background:var(--white);border:3px solid var(--black);
-  border-radius:999px;padding:14px 28px;width:100%;
-  box-shadow:5px 5px 0 var(--black);
-  transition:transform .2s,box-shadow .2s;
-}
-.hero-search-bar:focus-within{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--black)}
-.hero-search-icon{font-size:20px;flex-shrink:0}
-.hero-search-bar input{
-  flex:1;border:none;outline:none;background:none;
-  font-family:var(--font-body);font-size:16px;font-weight:600;
-  color:var(--black);min-width:0;
-}
-.hero-search-bar input::placeholder{color:#999}
-.hero-search-btn{
-  background:var(--black);color:var(--yellow);border:none;
-  border-radius:999px;font-family:var(--font-head);font-weight:700;
-  font-size:16px;letter-spacing:1px;padding:10px 26px;cursor:pointer;
-  transition:background .2s,color .2s;flex-shrink:0;
-}
-.hero-search-btn:hover{background:var(--yellow);color:var(--black)}
-@media(max-width:480px){
-  .hero-search-bar{padding:10px 18px;gap:8px}
-  .hero-search-btn{padding:8px 16px;font-size:14px}
-}
+.hero-btns{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2}
 .btn-black{
   background:var(--black);color:var(--white);
   border:3px solid var(--black);border-radius:999px;
@@ -234,12 +237,19 @@ nav{
 }
 .cat-card:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--black)}
 .cat-card-top{
-  padding:28px 16px 16px;
   min-height:120px;
   display:flex;align-items:center;justify-content:center;
-  font-size:52px;
   position:relative;
+  overflow:hidden;
 }
+.cat-card-img{
+  width:100%;height:120px;
+  object-fit:cover;
+  position:relative;z-index:2;
+  transition:transform .3s;
+  display:block;
+}
+.cat-card:hover .cat-card-img{transform:scale(1.08)}
 /* each card gets a different bg color via nth-child */
 .cat-card:nth-child(1) .cat-card-top{background:#FFD6E8}
 .cat-card:nth-child(2) .cat-card-top{background:#D6EAFF}
@@ -274,6 +284,7 @@ nav{
   position:relative;overflow:hidden;
 }
 .promo-banner.pb1{background:var(--pink)}
+.promo-banner.pb2{background:var(--purple)}
 /* squiggly pattern */
 .promo-banner::before{
   content:'';position:absolute;inset:0;
@@ -305,6 +316,7 @@ nav{
   line-height:1.1;
 }
 .promo-banner:hover .banner-pill{transform:rotate(0deg) scale(1.05)}
+.pb2 .banner-pill{background:var(--lime)}
 
 /* ══ PRODUCTS ══ */
 #topProducts{background:var(--orange)}
@@ -327,7 +339,6 @@ nav{
   min-height:200px;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
-  padding:20px;
 }
 /* wavy squiggle bg per card */
 .prod-card:nth-child(1) .prod-top{background:#FF85C0}
@@ -346,8 +357,8 @@ nav{
   background-size:60px 60px,60px 60px;
   background-position:0 0,30px 30px;
 }
-.prod-emoji{font-size:88px;position:relative;z-index:2;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));transition:transform .3s}
-.prod-card:hover .prod-emoji{transform:scale(1.08) rotate(-4deg)}
+.prod-card-img{width:100%;height:200px;object-fit:cover;position:relative;z-index:2;transition:transform .3s;display:block}
+.prod-card:hover .prod-card-img{transform:scale(1.08)}
 .prod-badge{
   position:absolute;top:12px;left:12px;z-index:3;
   background:var(--black);color:var(--yellow);
@@ -471,8 +482,7 @@ nav{
 .social-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--black)}
 .social-card.ig:hover{background:#FF2D7E;color:var(--white)}
 .social-card.pt:hover{background:#E60023;color:var(--white)}
-.s-icon{display:flex;align-items:center;justify-content:center;color:var(--black);transition:color .2s}
-.social-card:hover .s-icon{color:var(--white)}
+.s-icon{font-size:40px}
 .s-name{font-family:var(--font-head);font-size:22px;letter-spacing:2px}
 .s-handle{font-size:12px;font-weight:700;color:#888}
 .social-card:hover .s-handle{color:rgba(255,255,255,.7)}
@@ -505,6 +515,8 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:860px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .search-wrap input{width:110px}
   .why-grid{grid-template-columns:1fr}
   .why-mini-card:nth-child(2){margin-left:0}
   .promo-banner{flex-direction:column;text-align:center;padding:40px 24px}
@@ -523,7 +535,32 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <!-- ══ NAV ══ -->
 <nav id="mainNav">
   <a class="nav-logo" href="#">VIBE<span>STYLZ</span></a>
+  <ul class="nav-links">
+    <li><a href="#categories">GenZ Men</a></li>
+    <li><a href="#categories">GenZ Women</a></li>
+    <li><a href="#" onclick="openAllCats();return false">Categories</a></li>
+    <li><a href="#whyUs">About Us</a></li>
+    <li><a href="#partners">Partners</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="search-wrap">
+      <span style="font-size:16px">🔍</span>
+      <input type="text" id="navSearch" placeholder="Search styles…" oninput="handleSearch(this.value)" autocomplete="off"/>
+    </div>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
 </nav>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#categories" onclick="toggleMenu()">GenZ Men</a>
+  <a href="#categories" onclick="toggleMenu()">GenZ Women</a>
+  <a href="#" onclick="openAllCats();toggleMenu();return false">Categories</a>
+  <a href="#whyUs" onclick="toggleMenu()">About Us</a>
+  <a href="#partners" onclick="toggleMenu()">Partners</a>
+</div>
 
 <!-- ══ SEARCH OVERLAY ══ -->
 <div id="srchOverlay">
@@ -531,13 +568,13 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   <div style="max-width:800px;margin:0 auto">
     <div class="srch-head" id="srchHead">RESULTS</div>
     <div class="prod-grid" id="srchGrid"></div>
-    <div id="srchEmpty" style="display:none;text-align:center;padding:60px 0;font-family:'Baloo 2',sans-serif;font-size:40px;color:var(--white)">NO STYLES FOUND 🕵️</div>
+    <div id="srchEmpty" style="display:none;text-align:center;padding:60px 0;font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--white)">NO STYLES FOUND 🕵️</div>
   </div>
 </div>
 
 <!-- ══ ALL CATS PAGE ══ -->
 <div id="allCatsPage">
-  <button style="position:fixed;top:20px;right:24px;z-index:1000;background:var(--black);color:var(--yellow);border:3px solid var(--black);border-radius:999px;font-family:'Baloo 2',sans-serif;font-size:18px;letter-spacing:1px;padding:8px 24px;cursor:pointer" onclick="closeAllCats()">✕ CLOSE</button>
+  <button style="position:fixed;top:20px;right:24px;z-index:1000;background:var(--black);color:var(--yellow);border:3px solid var(--black);border-radius:999px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;padding:8px 24px;cursor:pointer" onclick="closeAllCats()">✕ CLOSE</button>
   <div style="max-width:900px;margin:0 auto;padding-top:20px">
     <div class="s-eyebrow">All Categories</div>
     <div class="s-title" style="margin-bottom:40px;color:var(--black)">SHOP BY <span style="color:var(--pink)">VIBE</span></div>
@@ -577,12 +614,9 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
     <span class="line3">NOT RULES</span>
   </h1>
   <p class="hero-sub">Bold fits. Real drops. No boring basics — ever.<br>Fashion for people who set the trend, not follow it.</p>
-  <div class="hero-search-wrap">
-    <div class="hero-search-bar">
-      <span class="hero-search-icon">🔍</span>
-      <input type="text" id="navSearch" placeholder="Search for hoodies, fits, drops…" oninput="handleSearch(this.value)" autocomplete="off"/>
-      <button class="hero-search-btn" onclick="handleSearch(document.getElementById('navSearch').value)">Search</button>
-    </div>
+  <div class="hero-btns">
+    <a class="btn-black" href="#topProducts">SHOP NOW ↓</a>
+    <a class="btn-white" href="#categories">BROWSE VIBES</a>
   </div>
   <div class="hero-stats">
     <div class="stat-box"><div class="stat-num">500+</div><div class="stat-lbl">Styles</div></div>
@@ -625,13 +659,14 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   </div>
 </section>
 
-<!-- ══ PROMO BANNER (GenZ Vibe) ══ -->
+<!-- ══ PROMO BANNER 1 (Summer Sale) ══ -->
 <div class="promo-banner pb1 reveal">
   <div class="banner-text">
-    <div class="banner-bigtext">MADE FOR<br>THE GENZ<br>GANG ✨</div>
-    <div class="banner-sub">Real fits. Real models. Real you.</div>
+    <div class="banner-bigtext">SUMMER<br>SALE IS<br>HERE 🌊</div>
+    <div class="banner-sub">Up to 70% off. No cap.</div>
+    <a class="btn-black" href="#topProducts" style="margin-top:24px;display:inline-block">SHOP SUMMER PICKS</a>
   </div>
-  <div class="banner-pill">NEW<br>FACES<br>📸</div>
+  <div class="banner-pill">UP TO<br>70%<br>OFF</div>
 </div>
 
 <!-- ══ TOP PRODUCTS ══ -->
@@ -648,6 +683,15 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   </div>
 </section>
 
+<!-- ══ PROMO BANNER 2 (Christmas) ══ -->
+<div class="promo-banner pb2 reveal">
+  <div class="banner-text">
+    <div class="banner-bigtext" style="color:var(--lime)">CHRISTMAS<br>VIBES ❄️</div>
+    <div class="banner-sub">Gift the perfect fit this season</div>
+    <a class="btn-white" href="#topProducts" style="margin-top:24px;display:inline-block">SHOP GIFTS</a>
+  </div>
+  <div class="banner-pill" style="background:var(--lime)">GIFTING<br>SEASON<br>🎁</div>
+</div>
 
 <!-- ══ WHY US ══ -->
 <section id="whyUs">
@@ -772,20 +816,12 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
     <p style="font-size:16px;font-weight:700;color:#555;margin-top:12px">Drop a follow. We actually reply.</p>
     <div class="social-row">
       <a class="social-card ig" href="https://instagram.com/vibestylz" target="_blank" rel="noopener">
-        <div class="s-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448" width="40" height="40" fill="currentColor">
-            <path d="M224 141.4c-46.4 0-83.9 37.5-83.9 83.9s37.5 83.9 83.9 83.9 83.9-37.5 83.9-83.9-37.5-83.9-83.9-83.9zm0 138.4c-30.1 0-54.5-24.4-54.5-54.5s24.4-54.5 54.5-54.5 54.5 24.4 54.5 54.5-24.4 54.5-54.5 54.5zm106.9-181.7c-11.3 0-20.5 9.2-20.5 20.5s9.2 20.5 20.5 20.5 20.5-9.1 20.5-20.5-9.1-20.5-20.5-20.5zM448 96c0-30.9-25.1-56-56-56H56C25.1 40 0 65.1 0 96v256c0 30.9 25.1 56 56 56h336c30.9 0 56-25.1 56-56V96zm-29.4 0v256c0 14.7-11.9 26.6-26.6 26.6H56c-14.7 0-26.6-11.9-26.6-26.6V96c0-14.7 11.9-26.6 26.6-26.6h336c14.7 0 26.6 11.9 26.6 26.6z"/>
-          </svg>
-        </div>
+        <div class="s-icon">📸</div>
         <div class="s-name">INSTAGRAM</div>
         <div class="s-handle">@vibestylz</div>
       </a>
       <a class="social-card pt" href="https://pinterest.com/vibestylz" target="_blank" rel="noopener">
-        <div class="s-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="40" height="40" fill="currentColor">
-            <path d="M204 0C97.6 0 0 67.1 0 192.4c0 75.5 41.2 132.6 105.1 132.6 26 0 49.3-13.8 49.3-39.4 0-3.3-1-7.4-2.1-12.4-7-29.7-19.4-82.4-19.4-111.2 0-37.4 28.5-69.4 76.2-69.4 60.5 0 94.5 42.3 94.5 110.6 0 85.5-37.9 158.8-94.2 158.8-25.4 0-44.6-15.2-51.7-37.7-12.4 49.5-15 57.7-29.8 96.3-2.6 6.9-6.8 14.4-12.3 21.8C144 422.5 167.4 432 192 432c123.8 0 207-112.3 207-261.7C399 69.4 296.1 0 204 0z"/>
-          </svg>
-        </div>
+        <div class="s-icon">📌</div>
         <div class="s-name">PINTEREST</div>
         <div class="s-handle">@vibestylz</div>
       </a>
@@ -809,33 +845,37 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <script>
 // ════════════════════════════════════════════
 //  YOUR DATA — edit products & categories here
+//  HOW TO ADD YOUR OWN PRODUCT PHOTO:
+//  Set "img" to your image's link (e.g. an Imgur/Google Drive
+//  direct image link, or a local path like "images/hoodie1.jpg"
+//  if you upload the photo into the same folder as this file).
 // ════════════════════════════════════════════
 const categories = [
-  {name:"Pants",emoji:"👖",count:"120+ styles"},
-  {name:"Shirts",emoji:"👔",count:"80+ styles"},
-  {name:"Hoodies",emoji:"👚",count:"60+ styles"},
-  {name:"T-Shirts",emoji:"👕",count:"200+ styles"},
-  {name:"Jackets",emoji:"🧥",count:"45+ styles"},
-  {name:"Dresses",emoji:"👗",count:"90+ styles"},
-  {name:"Tops",emoji:"🩱",count:"110+ styles"},
-  {name:"Streetwear",emoji:"🧢",count:"70+ styles"},
-  {name:"Ethnic Fusion",emoji:"🪡",count:"55+ styles"},
-  {name:"Accessories",emoji:"💍",count:"150+ styles"},
+  {name:"Pants",img:"https://picsum.photos/seed/pants/400/400",count:"120+ styles"},
+  {name:"Shirts",img:"https://picsum.photos/seed/shirts/400/400",count:"80+ styles"},
+  {name:"Hoodies",img:"https://picsum.photos/seed/hoodies/400/400",count:"60+ styles"},
+  {name:"T-Shirts",img:"https://picsum.photos/seed/tshirts/400/400",count:"200+ styles"},
+  {name:"Jackets",img:"https://picsum.photos/seed/jackets/400/400",count:"45+ styles"},
+  {name:"Dresses",img:"https://picsum.photos/seed/dresses/400/400",count:"90+ styles"},
+  {name:"Tops",img:"https://picsum.photos/seed/tops/400/400",count:"110+ styles"},
+  {name:"Streetwear",img:"https://picsum.photos/seed/streetwear/400/400",count:"70+ styles"},
+  {name:"Ethnic Fusion",img:"https://picsum.photos/seed/ethnicfusion/400/400",count:"55+ styles"},
+  {name:"Accessories",img:"https://picsum.photos/seed/accessories/400/400",count:"150+ styles"},
 ];
 
 const products = [
-  {name:"Oversized Graphic Hoodie",price:"₹799",old:"₹1,499",cat:"Hoodies",badge:"hot",emoji:"👚",link:"https://www.meesho.com/"},
-  {name:"Baggy Cargo Pants",price:"₹999",old:"₹1,899",cat:"Pants",badge:"new",emoji:"👖",link:"https://www.amazon.in/"},
-  {name:"Y2K Crop Top",price:"₹399",old:"₹799",cat:"Tops",badge:"hot",emoji:"🩱",link:"https://www.meesho.com/"},
-  {name:"Vintage Wash Tee",price:"₹499",old:"₹899",cat:"T-Shirts",badge:"new",emoji:"👕",link:"https://www.amazon.in/"},
-  {name:"Street Biker Jacket",price:"₹1,599",old:"₹2,999",cat:"Jackets",badge:"hot",emoji:"🧥",link:"https://www.shopsy.in/"},
-  {name:"Floral Co-ord Set",price:"₹1,199",old:"₹2,199",cat:"Dresses",badge:"new",emoji:"👗",link:"https://www.meesho.com/"},
+  {name:"Oversized Graphic Hoodie",price:"₹799",old:"₹1,499",cat:"Hoodies",badge:"hot",img:"https://picsum.photos/seed/oversizedhoodie/400/400",link:"https://www.meesho.com/"},
+  {name:"Baggy Cargo Pants",price:"₹999",old:"₹1,899",cat:"Pants",badge:"new",img:"https://picsum.photos/seed/baggycargo/400/400",link:"https://www.amazon.in/"},
+  {name:"Y2K Crop Top",price:"₹399",old:"₹799",cat:"Tops",badge:"hot",img:"https://picsum.photos/seed/y2kcroptop/400/400",link:"https://www.meesho.com/"},
+  {name:"Vintage Wash Tee",price:"₹499",old:"₹899",cat:"T-Shirts",badge:"new",img:"https://picsum.photos/seed/vintagetee/400/400",link:"https://www.amazon.in/"},
+  {name:"Street Biker Jacket",price:"₹1,599",old:"₹2,999",cat:"Jackets",badge:"hot",img:"https://picsum.photos/seed/bikerjacket/400/400",link:"https://www.shopsy.in/"},
+  {name:"Floral Co-ord Set",price:"₹1,199",old:"₹2,199",cat:"Dresses",badge:"new",img:"https://picsum.photos/seed/floraldress/400/400",link:"https://www.meesho.com/"},
 ];
 // ════════════════════════════════════════════
 
 function catCardHTML(c,i){
   return`<div class="cat-card reveal-scale" onclick="filterByCat('${c.name}')">
-    <div class="cat-card-top"><span style="position:relative;z-index:2;filter:drop-shadow(0 3px 6px rgba(0,0,0,.15))">${c.emoji}</span></div>
+    <div class="cat-card-top"><img class="cat-card-img" src="${c.img}" alt="${c.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(c.name)}'"></div>
     <div class="cat-card-bottom">
       <div class="cat-card-name">${c.name}</div>
       <div class="cat-card-count">${c.count}</div>
@@ -848,7 +888,7 @@ function prodCardHTML(p){
     ?`<span class="prod-badge hot">🔥 HOT</span>`
     :`<span class="prod-badge">✨ NEW</span>`;
   return`<div class="prod-card reveal-scale">
-    <div class="prod-top">${badgeHTML}<div class="prod-emoji">${p.emoji}</div></div>
+    <div class="prod-top">${badgeHTML}<img class="prod-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(p.name)}'"></div>
     <div class="prod-bottom">
       <div class="prod-cat-tag">${p.cat}</div>
       <div class="prod-name">${p.name}</div>
@@ -900,6 +940,17 @@ function filterByCat(cat){
 // All cats overlay
 function openAllCats(){document.getElementById('allCatsPage').classList.add('open');document.body.style.overflow='hidden'}
 function closeAllCats(){document.getElementById('allCatsPage').classList.remove('open');document.body.style.overflow=''}
+
+// Mobile menu
+function toggleMenu(){
+  const m=document.getElementById('mobMenu');
+  const h=document.getElementById('ham');
+  const o=m.classList.toggle('open');
+  document.body.style.overflow=o?'hidden':'';
+  const sp=h.querySelectorAll('span');
+  if(o){sp[0].style.transform='rotate(45deg) translate(5px,5px)';sp[1].style.opacity='0';sp[2].style.transform='rotate(-45deg) translate(5px,-5px)'}
+  else{sp.forEach(s=>{s.style.transform='';s.style.opacity='1'})}
+}
 
 // Slider
 let cur=0;
