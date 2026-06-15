@@ -239,7 +239,17 @@ nav{
   display:flex;align-items:center;justify-content:center;
   font-size:52px;
   position:relative;
+  overflow:hidden;
+
 }
+  .cat-card-img{
+  width:100%;height:120px;
+  object-fit:cover;
+  position:relative;z-index:2;
+  transition:transform .3s;
+  display:block;
+}
+.cat-card:hover .cat-card-img{transform:scale(1.08)}
 /* each card gets a different bg color via nth-child */
 .cat-card:nth-child(1) .cat-card-top{background:#FFD6E8}
 .cat-card:nth-child(2) .cat-card-top{background:#D6EAFF}
@@ -346,13 +356,13 @@ nav{
   background-size:60px 60px,60px 60px;
   background-position:0 0,30px 30px;
 }
-.prod-emoji{font-size:88px;position:relative;z-index:2;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));transition:transform .3s;align-items:center;justify-content:center}
-.prod-card:hover .prod-emoji{transform:scale(1.08) rotate(-4deg)}
-.prod-img{
-  width:100%;height:160px;position:relative;z-index:2;
-  object-fit:contain;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));
-  transition:transform .3s;
+.prod-card-img{width:100%;height:200px;object-fit:cover;position:relative;z-index:2;transition:transform .3s;display:block}
+.prod-card:hover .prod-card-img{transform:scale(1.08)}
+.prod-badge{
+  position:absolute;top:12px;left:12px;z-index:3;
+  background:var(--black);color:var(--yellow);
+  font-family:var(--font-head);font-size:13px;letter-spacing:1px;
+  padding:4px 12px;border-radius:999px;
 }
 .prod-card:hover .prod-img{transform:scale(1.08) rotate(-4deg)}
 .prod-badge{
@@ -577,7 +587,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   <div class="sticker sticker2 stk2">FREE<br>SHIP<br>⚡</div>
   <div class="sticker stk3">HOT<br>DEAL<br>💥</div>
 
-  <div class="hero-eyebrow">✦ GenZ Fashion Store 2025 ✦</div>
+  <div class="hero-eyebrow">✦ GenZ Fashion Store 2026 ✦</div>
   <h1 class="hero-h1">
     DRESS YOUR
     <span class="line2">VIBE</span>
@@ -638,7 +648,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
     <div class="banner-bigtext">MADE FOR<br>THE GENZ<br>GANG ✨</div>
     <div class="banner-sub">Real fits. Real models. Real you.</div>
   </div>
-  <div class="banner-pill">NEW<br>FACES<br>📸</div>
+  <div class="banner-pill">RARE<br>MORTALS<br>📸</div>
 </div>
 
 <!-- ══ TOP PRODUCTS ══ -->
@@ -679,7 +689,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
           <div class="why-icon">🌍</div>
           <div>
             <h4>All Platforms</h4>
-            <p>Meesho, Amazon, Shopsy — best prices, one place, zero hassle.</p>
+            <p>Meesho, Amazon, Shopify — best prices, one place, zero hassle.</p>
           </div>
         </div>
       </div>
@@ -733,17 +743,17 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
             <p class="r-quote">"VibeStylz literally changed how I shop. Found a hoodie, clicked Buy Now, got it from Meesho in 3 days for ₹399. My whole college was asking where I got it 😭🔥"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#FFD6E8">PK</div>
-              <div><div class="r-name">Priya K.</div><div class="r-handle">@priyavibes · Instagram</div></div>
+              <div><div class="r-name">Priya K.</div><div class="r-handle">@priyamoorthy · Instagram</div></div>
             </div>
           </div>
         </div>
         <div class="review-slide">
           <div class="review-card">
-            <div class="r-stars">★★★★★</div>
+            <div class="r-stars">★★★★☆</div>
             <p class="r-quote">"This page is goated. I follow them on Pinterest and every week there's new stuff. Found my entire birthday outfit through VibeStylz links. Real no cap recommendation 🙌"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#D6EAFF">AR</div>
-              <div><div class="r-name">Arjun R.</div><div class="r-handle">@arjunrealfit · Pinterest</div></div>
+              <div><div class="r-name">Arjun R.</div><div class="r-handle">@arjunviswanath · Pinterest</div></div>
             </div>
           </div>
         </div>
@@ -753,7 +763,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
             <p class="r-quote">"Finally a fashion page that actually gets GenZ. Not the same boring stuff everyone posts. They curate real aesthetic fits and the prices through their links are always the best deals!"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#D6FFE4">SM</div>
-              <div><div class="r-name">Sneha M.</div><div class="r-handle">@snehastyle · Instagram</div></div>
+              <div><div class="r-name">Sneha M.</div><div class="r-handle">@sneharam · Instagram</div></div>
             </div>
           </div>
         </div>
@@ -804,11 +814,8 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <footer>
   <div class="footer-brand" id="footerBrand">VIBESTYLZ</div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 VibeStylz · Affiliate links · Prices may vary</div>
+    <div class="footer-copy">© 2026 VibeStylz · Affiliate shop · Prices may vary</div>
     <div class="footer-links">
-      <a href="#hero">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#connect">Connect</a>
     </div>
   </div>
 </footer>
@@ -816,33 +823,37 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <script>
 // ════════════════════════════════════════════
 //  YOUR DATA — edit products & categories here
+//  HOW TO ADD YOUR OWN PRODUCT PHOTO:
+//  Set "img" to your image's link (e.g. an Imgur/Google Drive
+//  direct image link, or a local path like "images/hoodie1.jpg"
+//  if you upload the photo into the same folder as this file).
 // ════════════════════════════════════════════
 const categories = [
-  {name:"Pants",emoji:"👖",count:"120+ styles"},
-  {name:"Shirts",emoji:"👔",count:"80+ styles"},
-  {name:"Hoodies",emoji:"👚",count:"60+ styles"},
-  {name:"T-Shirts",emoji:"👕",count:"200+ styles"},
-  {name:"Jackets",emoji:"🧥",count:"45+ styles"},
-  {name:"Dresses",emoji:"👗",count:"90+ styles"},
-  {name:"Tops",emoji:"🩱",count:"110+ styles"},
-  {name:"Streetwear",emoji:"🧢",count:"70+ styles"},
-  {name:"Ethnic Fusion",emoji:"🪡",count:"55+ styles"},
-  {name:"Accessories",emoji:"💍",count:"150+ styles"},
+  {name:"Pants",img:"https://picsum.photos/seed/pants/400/400",count:"120+ styles"},
+  {name:"Shirts",img:"https://picsum.photos/seed/shirts/400/400",count:"80+ styles"},
+  {name:"Hoodies",img:"https://picsum.photos/seed/hoodies/400/400",count:"60+ styles"},
+  {name:"T-Shirts",img:"https://picsum.photos/seed/tshirts/400/400",count:"200+ styles"},
+  {name:"Jackets",img:"https://picsum.photos/seed/jackets/400/400",count:"45+ styles"},
+  {name:"Dresses",img:"https://picsum.photos/seed/dresses/400/400",count:"90+ styles"},
+  {name:"Tops",img:"https://picsum.photos/seed/tops/400/400",count:"110+ styles"},
+  {name:"Streetwear",img:"https://picsum.photos/seed/streetwear/400/400",count:"70+ styles"},
+  {name:"Ethnic Fusion",img:"https://picsum.photos/seed/ethnicfusion/400/400",count:"55+ styles"},
+  {name:"Accessories",img:"https://picsum.photos/seed/accessories/400/400",count:"150+ styles"},
 ];
 
 const products = [
-  {name:"Oversized Graphic Hoodie",price:"₹799",old:"₹1,499",cat:"Hoodies",badge:"hot",img:"https://placehold.co/400x400/FF85C0/FFFFFF?text=Hoodie",emoji:"👚",link:"https://www.meesho.com/"},
-  {name:"Baggy Cargo Pants",price:"₹999",old:"₹1,899",cat:"Pants",badge:"new",img:"https://placehold.co/400x400/B4E1FF/FFFFFF?text=Cargo+Pants",emoji:"👖",link:"https://www.amazon.in/"},
-  {name:"Y2K Crop Top",price:"₹399",old:"₹799",cat:"Tops",badge:"hot",img:"https://placehold.co/400x400/FFE066/FFFFFF?text=Crop+Top",emoji:"🩱",link:"https://www.meesho.com/"},
-  {name:"Vintage Wash Tee",price:"₹499",old:"₹899",cat:"T-Shirts",badge:"new",img:"https://placehold.co/400x400/C3FF85/FFFFFF?text=Vintage+Tee",emoji:"👕",link:"https://www.amazon.in/"},
-  {name:"Street Biker Jacket",price:"₹1,599",old:"₹2,999",cat:"Jackets",badge:"hot",img:"https://placehold.co/400x400/D0AAFF/FFFFFF?text=Biker+Jacket",emoji:"🧥",link:"https://www.shopsy.in/"},
-  {name:"Floral Co-ord Set",price:"₹1,199",old:"₹2,199",cat:"Dresses",badge:"new",img:"https://placehold.co/400x400/FF9F66/FFFFFF?text=Floral+Set",emoji:"👗",link:"https://www.meesho.com/"},
+  {name:"Oversized Graphic Hoodie",price:"₹799",old:"₹1,499",cat:"Hoodies",badge:"hot",img:"https://picsum.photos/seed/oversizedhoodie/400/400",link:"https://www.meesho.com/"},
+  {name:"Baggy Cargo Pants",price:"₹999",old:"₹1,899",cat:"Pants",badge:"new",img:"https://picsum.photos/seed/baggycargo/400/400",link:"https://www.amazon.in/"},
+  {name:"Y2K Crop Top",price:"₹399",old:"₹799",cat:"Tops",badge:"hot",img:"https://picsum.photos/seed/y2kcroptop/400/400",link:"https://www.meesho.com/"},
+  {name:"Vintage Wash Tee",price:"₹499",old:"₹899",cat:"T-Shirts",badge:"new",img:"https://picsum.photos/seed/vintagetee/400/400",link:"https://www.amazon.in/"},
+  {name:"Street Biker Jacket",price:"₹1,599",old:"₹2,999",cat:"Jackets",badge:"hot",img:"https://picsum.photos/seed/bikerjacket/400/400",link:"https://www.shopsy.in/"},
+  {name:"Floral Co-ord Set",price:"₹1,199",old:"₹2,199",cat:"Dresses",badge:"new",img:"https://picsum.photos/seed/floraldress/400/400",link:"https://www.meesho.com/"},
 ];
 // ════════════════════════════════════════════
 
 function catCardHTML(c,i){
   return`<div class="cat-card reveal-scale" onclick="filterByCat('${c.name}')">
-    <div class="cat-card-top"><span style="position:relative;z-index:2;filter:drop-shadow(0 3px 6px rgba(0,0,0,.15))">${c.emoji}</span></div>
+    <div class="cat-card-top"><img class="cat-card-img" src="${c.img}" alt="${c.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(c.name)}'"></div>
     <div class="cat-card-bottom">
       <div class="cat-card-name">${c.name}</div>
       <div class="cat-card-count">${c.count}</div>
@@ -854,12 +865,8 @@ function prodCardHTML(p){
   const badgeHTML=p.badge==='hot'
     ?`<span class="prod-badge hot">🔥 HOT</span>`
     :`<span class="prod-badge">✨ NEW</span>`;
-  const emojiHTML=`<div class="prod-emoji" style="display:none">${p.emoji||'🛍️'}</div>`;
-  const mediaHTML=p.img
-    ?`<img class="prod-img" src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">${emojiHTML}`
-    :`<div class="prod-emoji" style="display:flex">${p.emoji||'🛍️'}</div>`;
   return`<div class="prod-card reveal-scale">
-    <div class="prod-top">${badgeHTML}${mediaHTML}</div>
+    <div class="prod-top">${badgeHTML}<img class="prod-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(p.name)}'"></div>
     <div class="prod-bottom">
       <div class="prod-cat-tag">${p.cat}</div>
       <div class="prod-name">${p.name}</div>
@@ -871,6 +878,7 @@ function prodCardHTML(p){
     </div>
   </div>`;
 }
+
 
 // Build grids
 function buildCats(id, limit){
