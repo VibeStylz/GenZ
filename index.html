@@ -114,31 +114,20 @@ nav{
   width:100%;max-width:620px;margin-top:32px;position:relative;z-index:2;
   display:flex;justify-content:center;
 }
-.hero-search-bar{
-  display:flex;align-items:center;gap:12px;
-  background:var(--white);border:3px solid var(--black);
-  border-radius:999px;padding:14px 28px;width:100%;
+.telegram-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#229ED9;color:var(--white);
+  border:3px solid var(--black);
+  border-radius:999px;padding:16px 36px;
+  font-family:var(--font-head);font-weight:700;
+  font-size:18px;letter-spacing:1px;cursor:pointer;
+  text-decoration:none;
   box-shadow:5px 5px 0 var(--black);
-  transition:transform .2s,box-shadow .2s;
+  transition:transform .2s,box-shadow .2s,background .2s;
 }
-.hero-search-bar:focus-within{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--black)}
-.hero-search-icon{font-size:20px;flex-shrink:0}
-.hero-search-bar input{
-  flex:1;border:none;outline:none;background:none;
-  font-family:var(--font-body);font-size:16px;font-weight:600;
-  color:var(--black);min-width:0;
-}
-.hero-search-bar input::placeholder{color:#999}
-.hero-search-btn{
-  background:var(--black);color:var(--yellow);border:none;
-  border-radius:999px;font-family:var(--font-head);font-weight:700;
-  font-size:16px;letter-spacing:1px;padding:10px 26px;cursor:pointer;
-  transition:background .2s,color .2s;flex-shrink:0;
-}
-.hero-search-btn:hover{background:var(--yellow);color:var(--black)}
+.telegram-btn:hover{background:#1c87bd;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--black)}
 @media(max-width:480px){
-  .hero-search-bar{padding:10px 18px;gap:8px}
-  .hero-search-btn{padding:8px 16px;font-size:14px}
+  .telegram-btn{padding:13px 26px;font-size:15px;gap:8px}
 }
 .btn-black{
   background:var(--black);color:var(--white);
@@ -239,17 +228,7 @@ nav{
   display:flex;align-items:center;justify-content:center;
   font-size:52px;
   position:relative;
-  overflow:hidden;
-
 }
-  .cat-card-img{
-  width:100%;height:120px;
-  object-fit:cover;
-  position:relative;z-index:2;
-  transition:transform .3s;
-  display:block;
-}
-.cat-card:hover .cat-card-img{transform:scale(1.08)}
 /* each card gets a different bg color via nth-child */
 .cat-card:nth-child(1) .cat-card-top{background:#FFD6E8}
 .cat-card:nth-child(2) .cat-card-top{background:#D6EAFF}
@@ -356,13 +335,13 @@ nav{
   background-size:60px 60px,60px 60px;
   background-position:0 0,30px 30px;
 }
-.prod-card-img{width:100%;height:200px;object-fit:cover;position:relative;z-index:2;transition:transform .3s;display:block}
-.prod-card:hover .prod-card-img{transform:scale(1.08)}
-.prod-badge{
-  position:absolute;top:12px;left:12px;z-index:3;
-  background:var(--black);color:var(--yellow);
-  font-family:var(--font-head);font-size:13px;letter-spacing:1px;
-  padding:4px 12px;border-radius:999px;
+.prod-emoji{font-size:88px;position:relative;z-index:2;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));transition:transform .3s;align-items:center;justify-content:center}
+.prod-card:hover .prod-emoji{transform:scale(1.08) rotate(-4deg)}
+.prod-img{
+  width:100%;height:160px;position:relative;z-index:2;
+  object-fit:contain;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));
+  transition:transform .3s;
 }
 .prod-card:hover .prod-img{transform:scale(1.08) rotate(-4deg)}
 .prod-badge{
@@ -432,7 +411,7 @@ nav{
 .p-logo{font-family:var(--font-head);font-size:30px;letter-spacing:3px}
 .p-logo.meesho{color:#F43397}
 .p-logo.amazon{color:#FF9900}
-.p-logo.shopify{color:#2874F0}
+.p-logo.shopsy{color:#2874F0}
 .p-tag{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.5px}
 
 /* ══ REVIEWS ══ */
@@ -542,26 +521,6 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   <a class="nav-logo" href="#">VIBE<span>STYLZ</span></a>
 </nav>
 
-<!-- ══ SEARCH OVERLAY ══ -->
-<div id="srchOverlay">
-  <button class="srch-close-btn" onclick="closeSearch()">✕ CLOSE</button>
-  <div style="max-width:800px;margin:0 auto">
-    <div class="srch-head" id="srchHead">RESULTS</div>
-    <div class="prod-grid" id="srchGrid"></div>
-    <div id="srchEmpty" style="display:none;text-align:center;padding:60px 0;font-family:'Baloo 2',sans-serif;font-size:40px;color:var(--white)">NO STYLES FOUND 🕵️</div>
-  </div>
-</div>
-
-<!-- ══ ALL CATS PAGE ══ -->
-<div id="allCatsPage">
-  <button style="position:fixed;top:20px;right:24px;z-index:1000;background:var(--black);color:var(--yellow);border:3px solid var(--black);border-radius:999px;font-family:'Baloo 2',sans-serif;font-size:18px;letter-spacing:1px;padding:8px 24px;cursor:pointer" onclick="closeAllCats()">✕ CLOSE</button>
-  <div style="max-width:900px;margin:0 auto;padding-top:20px">
-    <div class="s-eyebrow">All Categories</div>
-    <div class="s-title" style="margin-bottom:40px;color:var(--black)">SHOP BY <span style="color:var(--pink)">VIBE</span></div>
-    <div class="cat-grid" id="allCatsGrid"></div>
-  </div>
-</div>
-
 <!-- ══ HERO ══ -->
 <section id="hero">
   <div class="hero-blobs">
@@ -587,7 +546,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   <div class="sticker sticker2 stk2">FREE<br>SHIP<br>⚡</div>
   <div class="sticker stk3">HOT<br>DEAL<br>💥</div>
 
-  <div class="hero-eyebrow">✦ GenZ Fashion Store 2026 ✦</div>
+  <div class="hero-eyebrow">✦ GenZ Fashion Store 2025 ✦</div>
   <h1 class="hero-h1">
     DRESS YOUR
     <span class="line2">VIBE</span>
@@ -595,11 +554,12 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   </h1>
   <p class="hero-sub">Bold fits. Real drops. No boring basics — ever.<br>Fashion for people who set the trend, not follow it.</p>
   <div class="hero-search-wrap">
-    <div class="hero-search-bar">
-      <span class="hero-search-icon">🔍</span>
-      <input type="text" id="navSearch" placeholder="Search for hoodies, fits, drops…" oninput="handleSearch(this.value)" autocomplete="off"/>
-      <button class="hero-search-btn" onclick="handleSearch(document.getElementById('navSearch').value)">Search</button>
-    </div>
+    <a class="telegram-btn" href="https://t.me/vibestylz" target="_blank" rel="noopener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="26" height="26" fill="currentColor">
+        <path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm55.6 81.6l-19.6 92.5c-1.5 6.6-5.4 8.2-10.9 5.1l-30.1-22.2-14.5 14c-1.6 1.6-3 3-6.1 3l2.2-30.9 56.3-50.9c2.4-2.2-.5-3.4-3.7-1.2l-69.6 43.8-30-9.4c-6.5-2-6.6-6.5 1.4-9.6l117.4-45.2c5.4-2 10.1 1.3 7.2 10.1z"/>
+      </svg>
+      <span>JOIN OUR TELEGRAM</span>
+    </a>
   </div>
   <div class="hero-stats">
     <div class="stat-box"><div class="stat-num">500+</div><div class="stat-lbl">Styles</div></div>
@@ -628,43 +588,14 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
   </div>
 </div>
 
-<!-- ══ CATEGORIES ══ -->
-<section id="categories">
-  <div class="section-wrap">
-    <div class="cat-header">
-      <div>
-        <div class="s-eyebrow">Shop by Category</div>
-        <div class="s-title">FIND YOUR <span class="yl">VIBE</span></div>
-      </div>
-      <a href="#" class="btn-outline-black" onclick="openAllCats();return false">ALL CATEGORIES →</a>
-    </div>
-    <div class="cat-grid" id="mainCatGrid"></div>
-  </div>
-</section>
-
 <!-- ══ PROMO BANNER (GenZ Vibe) ══ -->
 <div class="promo-banner pb1 reveal">
   <div class="banner-text">
     <div class="banner-bigtext">MADE FOR<br>THE GENZ<br>GANG ✨</div>
     <div class="banner-sub">Real fits. Real models. Real you.</div>
   </div>
-  <div class="banner-pill">RARE<br>MORTALS<br>📸</div>
+  <div class="banner-pill">NEW<br>FACES<br>📸</div>
 </div>
-
-<!-- ══ TOP PRODUCTS ══ -->
-<section id="topProducts">
-  <div class="section-wrap">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px">
-      <div>
-        <div class="s-eyebrow">Handpicked for You</div>
-        <div class="s-title" style="color:var(--white);-webkit-text-stroke:2px var(--black);text-shadow:4px 4px 0 var(--black)">TOP <span style="color:var(--yellow);-webkit-text-stroke:2px var(--black)">PICKS</span></div>
-      </div>
-      <a href="#" class="btn-white">SEE ALL →</a>
-    </div>
-    <div class="prod-grid" id="topProdGrid"></div>
-  </div>
-</section>
-
 
 <!-- ══ WHY US ══ -->
 <section id="whyUs">
@@ -689,7 +620,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
           <div class="why-icon">🌍</div>
           <div>
             <h4>All Platforms</h4>
-            <p>Meesho, Amazon, Shopify — best prices, one place, zero hassle.</p>
+            <p>Meesho, Amazon, Shopsy — best prices, one place, zero hassle.</p>
           </div>
         </div>
       </div>
@@ -722,8 +653,8 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
         <div class="p-logo amazon">AMAZON</div>
         <div class="p-tag">Prime delivery + top brands</div>
       </div>
-      <div class="partner-card reveal-scale" onclick="window.open('https://www.shopify.in','_blank')">
-        <div class="p-logo shopify">SHOPIFY</div>
+      <div class="partner-card reveal-scale" onclick="window.open('https://www.shopsy.in','_blank')">
+        <div class="p-logo shopsy">SHOPSY</div>
         <div class="p-tag">Unbeatable prices daily</div>
       </div>
     </div>
@@ -743,17 +674,17 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
             <p class="r-quote">"VibeStylz literally changed how I shop. Found a hoodie, clicked Buy Now, got it from Meesho in 3 days for ₹399. My whole college was asking where I got it 😭🔥"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#FFD6E8">PK</div>
-              <div><div class="r-name">Priya K.</div><div class="r-handle">@priyamoorthy · Instagram</div></div>
+              <div><div class="r-name">Priya K.</div><div class="r-handle">@priyavibes · Instagram</div></div>
             </div>
           </div>
         </div>
         <div class="review-slide">
           <div class="review-card">
-            <div class="r-stars">★★★★☆</div>
+            <div class="r-stars">★★★★★</div>
             <p class="r-quote">"This page is goated. I follow them on Pinterest and every week there's new stuff. Found my entire birthday outfit through VibeStylz links. Real no cap recommendation 🙌"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#D6EAFF">AR</div>
-              <div><div class="r-name">Arjun R.</div><div class="r-handle">@arjunviswanath · Pinterest</div></div>
+              <div><div class="r-name">Arjun R.</div><div class="r-handle">@arjunrealfit · Pinterest</div></div>
             </div>
           </div>
         </div>
@@ -763,7 +694,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
             <p class="r-quote">"Finally a fashion page that actually gets GenZ. Not the same boring stuff everyone posts. They curate real aesthetic fits and the prices through their links are always the best deals!"</p>
             <div class="r-author">
               <div class="r-avatar" style="background:#D6FFE4">SM</div>
-              <div><div class="r-name">Sneha M.</div><div class="r-handle">@sneharam · Instagram</div></div>
+              <div><div class="r-name">Sneha M.</div><div class="r-handle">@snehastyle · Instagram</div></div>
             </div>
           </div>
         </div>
@@ -814,8 +745,11 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <footer>
   <div class="footer-brand" id="footerBrand">VIBESTYLZ</div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 VibeStylz · Affiliate shop · Prices may vary</div>
+    <div class="footer-copy">© 2025 VibeStylz · Affiliate links · Prices may vary</div>
     <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="https://t.me/vibestylz" target="_blank" rel="noopener">Telegram</a>
+      <a href="#connect">Connect</a>
     </div>
   </div>
 </footer>
@@ -823,103 +757,7 @@ footer{background:var(--black);padding:48px 28px 32px;text-align:center;overflow
 <script>
 // ════════════════════════════════════════════
 //  YOUR DATA — edit products & categories here
-//  HOW TO ADD YOUR OWN PRODUCT PHOTO:
-//  Set "img" to your image's link (e.g. an Imgur/Google Drive
-//  direct image link, or a local path like "images/hoodie1.jpg"
-//  if you upload the photo into the same folder as this file).
 // ════════════════════════════════════════════
-const categories = [
-  {name:"Pants",img:"https://picsum.photos/seed/pants/400/400",count:"120+ styles"},
-  {name:"Shirts",img:"https://picsum.photos/seed/shirts/400/400",count:"80+ styles"},
-  {name:"Hoodies",img:"https://picsum.photos/seed/hoodies/400/400",count:"60+ styles"},
-  {name:"T-Shirts",img:"https://picsum.photos/seed/tshirts/400/400",count:"200+ styles"},
-  {name:"Jackets",img:"https://picsum.photos/seed/jackets/400/400",count:"45+ styles"},
-  {name:"Dresses",img:"https://picsum.photos/seed/dresses/400/400",count:"90+ styles"},
-  {name:"Tops",img:"https://picsum.photos/seed/tops/400/400",count:"110+ styles"},
-  {name:"Streetwear",img:"https://picsum.photos/seed/streetwear/400/400",count:"70+ styles"},
-  {name:"Ethnic Fusion",img:"https://picsum.photos/seed/ethnicfusion/400/400",count:"55+ styles"},
-  {name:"Accessories",img:"https://picsum.photos/seed/accessories/400/400",count:"150+ styles"},
-];
-
-const products = [
-  {name:"Oversized Graphic Hoodie",price:"₹799",old:"₹1,499",cat:"Hoodies",badge:"hot",img:"https://picsum.photos/seed/oversizedhoodie/400/400",link:"https://www.meesho.com/"},
-  {name:"Baggy Cargo Pants",price:"₹999",old:"₹1,899",cat:"Pants",badge:"new",img:"https://picsum.photos/seed/baggycargo/400/400",link:"https://www.amazon.in/"},
-  {name:"Y2K Crop Top",price:"₹399",old:"₹799",cat:"Tops",badge:"hot",img:"https://picsum.photos/seed/y2kcroptop/400/400",link:"https://www.meesho.com/"},
-  {name:"Vintage Wash Tee",price:"₹499",old:"₹899",cat:"T-Shirts",badge:"new",img:"https://picsum.photos/seed/vintagetee/400/400",link:"https://www.amazon.in/"},
-  {name:"Street Biker Jacket",price:"₹1,599",old:"₹2,999",cat:"Jackets",badge:"hot",img:"https://picsum.photos/seed/bikerjacket/400/400",link:"https://www.shopify.in/"},
-  {name:"Floral Co-ord Set",price:"₹1,199",old:"₹2,199",cat:"Dresses",badge:"new",img:"https://picsum.photos/seed/floraldress/400/400",link:"https://www.meesho.com/"},
-];
-// ════════════════════════════════════════════
-
-function catCardHTML(c,i){
-  return`<div class="cat-card reveal-scale" onclick="filterByCat('${c.name}')">
-    <div class="cat-card-top"><img class="cat-card-img" src="${c.img}" alt="${c.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(c.name)}'"></div>
-    <div class="cat-card-bottom">
-      <div class="cat-card-name">${c.name}</div>
-      <div class="cat-card-count">${c.count}</div>
-    </div>
-  </div>`;
-}
-
-function prodCardHTML(p){
-  const badgeHTML=p.badge==='hot'
-    ?`<span class="prod-badge hot">🔥 HOT</span>`
-    :`<span class="prod-badge">✨ NEW</span>`;
-  return`<div class="prod-card reveal-scale">
-    <div class="prod-top">${badgeHTML}<img class="prod-card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/999999?text=${encodeURIComponent(p.name)}'"></div>
-    <div class="prod-bottom">
-      <div class="prod-cat-tag">${p.cat}</div>
-      <div class="prod-name">${p.name}</div>
-      <div class="prod-price-row">
-        <div class="prod-price">${p.price}</div>
-        <div class="prod-old">${p.old}</div>
-      </div>
-      <a class="prod-buy" href="${p.link}" target="_blank" rel="noopener">BUY NOW</a>
-    </div>
-  </div>`;
-}
-
-
-// Build grids
-function buildCats(id, limit){
-  const el=document.getElementById(id);
-  if(!el)return;
-  const list=limit?categories.slice(0,limit):categories;
-  el.innerHTML=list.map(catCardHTML).join('');
-  observeReveal();
-}
-buildCats('mainCatGrid',6);
-buildCats('allCatsGrid');
-document.getElementById('topProdGrid').innerHTML=products.map(prodCardHTML).join('');
-
-// Search
-let sTimeout;
-function handleSearch(q){
-  clearTimeout(sTimeout);
-  if(!q.trim()){closeSearch();return;}
-  sTimeout=setTimeout(()=>{
-    const r=products.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase()));
-    document.getElementById('srchHead').textContent=r.length+' RESULT'+(r.length!==1?'S':'')+' FOR "'+q.toUpperCase()+'"';
-    document.getElementById('srchGrid').innerHTML=r.map(prodCardHTML).join('');
-    document.getElementById('srchEmpty').style.display=r.length?'none':'block';
-    document.getElementById('srchOverlay').classList.add('open');
-    observeReveal();
-  },300);
-}
-function closeSearch(){document.getElementById('srchOverlay').classList.remove('open');document.getElementById('navSearch').value=''}
-function filterByCat(cat){
-  const r=products.filter(p=>p.cat===cat);
-  document.getElementById('srchHead').textContent='CATEGORY: '+cat.toUpperCase()+' ('+r.length+')';
-  document.getElementById('srchGrid').innerHTML=r.length?r.map(prodCardHTML).join(''):'';
-  document.getElementById('srchEmpty').style.display=r.length?'none':'block';
-  document.getElementById('srchOverlay').classList.add('open');
-  observeReveal();
-}
-
-// All cats overlay
-function openAllCats(){document.getElementById('allCatsPage').classList.add('open');document.body.style.overflow='hidden'}
-function closeAllCats(){document.getElementById('allCatsPage').classList.remove('open');document.body.style.overflow=''}
-
 // Slider
 let cur=0;
 function goSlide(n){
@@ -941,10 +779,6 @@ function observeReveal(){
   });
 }
 observeReveal();
-
-// Nav keyboard close
-document.getElementById('navSearch').addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch()});
-document.getElementById('srchOverlay').addEventListener('click',e=>{if(e.target===document.getElementById('srchOverlay'))closeSearch()});
 </script>
 </body>
 </html>
